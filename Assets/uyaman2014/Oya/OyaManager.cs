@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HinaComponent : MonoBehaviour
+public class OyaManager : MonoBehaviour
 {
+    public GameObject CurrentTargetObject;
     // Start is called before the first frame update
     void Start()
     {
-        
+        CurrentTargetObject = this.gameObject;
     }
 
     // Update is called once per frame
@@ -18,7 +19,6 @@ public class HinaComponent : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var sif = collision.gameObject.GetComponent<SampleInterface>();
-        Debug.Log(sif.FloatFunc());
+        
     }
 }

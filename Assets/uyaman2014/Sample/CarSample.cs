@@ -1,28 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
+using keigo.Scripts.Common;
 using UnityEngine;
 
-public class CarSample : MonoBehaviour, SampleInterface
+public class CarSample : MonoBehaviour, IMovingObstacle
 {
-    public float FloatFunc()
-    {
-        return 100;
-    }
+    [SerializeField]
+    private Vector2 MoveDirection;
 
-    public int IntFunc()
-    {
-        return -1;
-    }
-
-    public Vector2 VectorFunc()
-    {
-        return Vector2.zero;
-    }
+    public float Scattered => 1;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.left;
+        GetComponent<Rigidbody2D>().velocity = MoveDirection;
     }
 
     // Update is called once per frame
