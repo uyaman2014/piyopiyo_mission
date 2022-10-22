@@ -37,15 +37,20 @@ namespace Manager
 
         public async Task TransitionScene(string sceneName)
         {
-            var task = new UniTask();
+            var task = new UniTaskCompletionSource();
 
             transitionImage.gameObject.SetActive(true);
             transitionImage.DOFade(1, 0.5f).OnComplete(async () =>
             {
                 await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-                await SceneManager.LoadSceneAsync(sceneName);
-                
+                await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+                transitionImage.DOFade(0, 0.5f).OnComplete(() =>
+                {
+                    transitionImage.gameObject.SetActive(false);
+                    task.TrySetResult();
+                });
             });
+            await task.Task;
         }
     }
 }
