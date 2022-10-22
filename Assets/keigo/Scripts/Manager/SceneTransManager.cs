@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
@@ -32,7 +33,18 @@ namespace Manager
                 break;
             }
 
-            if (!baseSceneFlag) SceneManager.LoadSceneAsync("BaseScene", LoadSceneMode.Additive);
+            if (!baseSceneFlag)
+            {
+                try
+                {
+                    SceneManager.LoadSceneAsync("BaseScene", LoadSceneMode.Additive);
+                }
+                catch (Exception)
+                {
+                    Debug.LogWarning("'BaseScene' がビルド設定に含まれていません。");
+                    throw;
+                }
+            }
         }
 
 
