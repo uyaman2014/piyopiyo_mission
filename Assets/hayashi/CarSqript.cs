@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
 
-public class CarSqript : MonoBehaviour,  SqriptInterface
+public class CarSqript : MonoBehaviour
 {
     public float FloartFunc()
     {
@@ -35,6 +35,3 @@ public class CarSqript : MonoBehaviour,  SqriptInterface
     }
 }
 
-internal interface SqriptInterface
-{
-}
