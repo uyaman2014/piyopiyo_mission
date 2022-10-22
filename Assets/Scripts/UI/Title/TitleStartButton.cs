@@ -7,18 +7,22 @@ namespace UI.Title
     /// <summary>
     ///     タイトルのスタートボタン
     /// </summary>
-    public class StartButton : MonoBehaviour
+    public class TitleStartButton : UIButton
     {
         [SerializeField] private string nextSceneName = "SampleScene";
         private Button _button;
         private SceneTransManager _transManager;
 
-        private void Start()
+        protected override void Start()
         {
-            TryGetComponent(out _button);
             GameObject.FindWithTag("TransManager").TryGetComponent(out _transManager);
 
-            _button.onClick.AddListener(async () => await _transManager.TransitionScene(nextSceneName));
+            base.Start();
+        }
+
+        protected override async void OnClick()
+        {
+            await _transManager.TransitionScene(nextSceneName);
         }
     }
 }
