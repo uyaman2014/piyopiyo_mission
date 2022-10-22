@@ -21,6 +21,10 @@ namespace UI.Window
             _container.gameObject.SetActive(false);
         }
 
+        /// <summary>
+        ///     ウィンドウ開く
+        /// </summary>
+        /// <returns></returns>
         public UniTask Open()
         {
             var taskSource = new UniTaskCompletionSource();
@@ -30,6 +34,10 @@ namespace UI.Window
             return taskSource.Task;
         }
 
+        /// <summary>
+        ///     ウィンドウ閉じる
+        /// </summary>
+        /// <returns></returns>
         public UniTask Close()
         {
             var taskSource = new UniTaskCompletionSource();
