@@ -1,8 +1,7 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace UI.Title
+namespace UI
 {
     public abstract class UIButton : MonoBehaviour
     {

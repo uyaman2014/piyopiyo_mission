@@ -27,6 +27,7 @@ namespace Manager
             {
                 var scene = SceneManager.GetSceneAt(i);
                 if (scene.name != "BaseScene") continue;
+
                 baseSceneFlag = true;
                 break;
             }
@@ -44,6 +45,7 @@ namespace Manager
             {
                 await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
                 await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+                SceneManager.SetActiveScene(SceneManager.GetSceneByName(sceneName));
                 transitionImage.DOFade(0, 0.5f).OnComplete(() =>
                 {
                     transitionImage.gameObject.SetActive(false);
