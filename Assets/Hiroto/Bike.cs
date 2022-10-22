@@ -7,7 +7,11 @@ using UnityEngine;
 
 public class Bike : MonoBehaviour
 {
-
+    public enum Type
+    {
+        boybike, gialbike
+    }
+    public Type type;
     [SerializeField]
     private Vector2 velocity;
 
