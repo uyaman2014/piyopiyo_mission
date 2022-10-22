@@ -36,6 +36,10 @@ namespace Manager
         }
 
 
+        /// <summary>
+        ///     指定したシーンを読み込み
+        /// </summary>
+        /// <param name="sceneName"></param>
         public async Task TransitionScene(string sceneName)
         {
             var task = new UniTaskCompletionSource();
