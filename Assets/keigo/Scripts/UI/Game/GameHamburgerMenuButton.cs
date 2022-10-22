@@ -1,4 +1,6 @@
 ﻿using DG.Tweening;
+using DG.Tweening.Core;
+using DG.Tweening.Plugins.Options;
 using keigo.Scripts.Common;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,48 +10,56 @@ namespace UI.Game
     public class GameHamburgerMenuButton : UIButton
     {
         [SerializeField] private Image pauseUI;
+        [SerializeField] private Image minimapContainer;
+        private float _minimapWidth, _minimapInitX;
+        private float _pauseUIWidth;
+
         // TODO: 注入
         private IPoseExecutor _poseExecutor;
-        private float _width;
 
         private void Awake()
         {
-            _width = pauseUI.rectTransform.sizeDelta.x;
+            _pauseUIWidth = pauseUI.rectTransform.sizeDelta.x;
+            _minimapWidth = minimapContainer.rectTransform.sizeDelta.x;
+            _minimapInitX = minimapContainer.rectTransform.anchoredPosition.x;
+            ;
 
             var pos = pauseUI.rectTransform.localPosition;
-            pos.x -= _width;
+            pos.x -= _pauseUIWidth;
             pauseUI.rectTransform.localPosition = pos;
         }
 
+        private TweenerCore<float, float, FloatOptions> MoveRectX(RectTransform rect, float endValue, float duration)
+        {
+            return DOTween.To(() => rect.anchoredPosition.x, value =>
+            {
+                var pos = rect.anchoredPosition;
+                pos.x = value;
+                rect.anchoredPosition = pos;
+            }, endValue, duration);
+        }
+
         /// <summary>
-        /// ポーズする
+        ///     ポーズする
         /// </summary>
         public void Pause()
         {
             pauseUI.gameObject.SetActive(true);
-            DOTween.To(() => pauseUI.rectTransform.anchoredPosition.x, value =>
-            {
-                var pos = pauseUI.rectTransform.anchoredPosition;
-                pos.x = value;
-                pauseUI.rectTransform.anchoredPosition = pos;
-            }, 0, 0.1f);
-            
+            MoveRectX(minimapContainer.rectTransform, -_minimapWidth, 0.1f)
+                .OnComplete(() => MoveRectX(pauseUI.rectTransform, 0, 0.1f));
+
             _poseExecutor?.Pause();
         }
 
         /// <summary>
-        /// 再開
+        ///     再開
         /// </summary>
         public void Resume()
         {
             pauseUI.gameObject.SetActive(false);
-            DOTween.To(() => pauseUI.rectTransform.anchoredPosition.x, value =>
-            {
-                var pos = pauseUI.rectTransform.anchoredPosition;
-                pos.x = value;
-                pauseUI.rectTransform.anchoredPosition = pos;
-            }, -_width, 0.1f);
-            
+            MoveRectX(pauseUI.rectTransform, -_pauseUIWidth, 0.1f)
+                .OnComplete(() => MoveRectX(minimapContainer.rectTransform, _minimapInitX, 0.1f));
+
             _poseExecutor?.Resume();
         }
 
@@ -60,13 +70,9 @@ namespace UI.Game
             // TODO: というか誰がポーズを管理するか
 
             if (isPaused)
-            {
                 Resume();
-            }
             else
-            {
                 Pause();
-            }
         }
     }
 }
