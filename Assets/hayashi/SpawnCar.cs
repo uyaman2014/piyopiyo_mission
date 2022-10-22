@@ -29,6 +29,10 @@ public class SpawnCar : MonoBehaviour
             yield return new WaitForSeconds(1.5f);
         }
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        
+    }
     // Update is called once per frame
     void Update()
     {
