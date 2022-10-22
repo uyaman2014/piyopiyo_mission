@@ -7,14 +7,8 @@ using UnityEngine;
 
 public class CarSqript : MonoBehaviour
 {
-    public float FloartFunc()
-    {
-        return 100;
-    }
-    public int IntFunc()
-    {
-        return -1;
-    }
+    [SerializeField]
+    private Vector2 Velocity;
 
     public Vector2 VectorFunc()
     {
@@ -24,8 +18,8 @@ public class CarSqript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-            
+
+        GetComponent<Rigidbody2D>().velocity = Vector2.left;
     }
 
     // Update is called once per frame
