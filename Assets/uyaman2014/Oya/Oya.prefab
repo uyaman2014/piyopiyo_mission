@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2379880891117484471}
   - component: {fileID: 6446035649367220004}
-  - component: {fileID: 2232590782119306500}
+  - component: {fileID: 6095465796253428145}
   - component: {fileID: 8565247059721162641}
-  - component: {fileID: 1938793152}
-  - component: {fileID: -3209775951841055960}
+  - component: {fileID: 6229923197559115167}
+  - component: {fileID: -4164237827658870242}
   m_Layer: 0
-  m_Name: Hina
+  m_Name: Oya
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e6ab437ecb674b3429ec47c8d46a7459, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fc460ab50fb3cd498ec1a35ec1c7837, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &2232590782119306500
+--- !u!58 &6095465796253428145
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -101,9 +101,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.26, y: -0.15}
+  m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.99
+  m_Radius: 5
 --- !u!50 &8565247059721162641
 Rigidbody2D:
   serializedVersion: 4
@@ -125,7 +125,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1938793152
+--- !u!114 &6229923197559115167
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -134,12 +134,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 2048847271053277638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f77d3f4fca17fb34288b8a44f76a6677, type: 3}
+  m_Script: {fileID: 11500000, guid: 45fdc29c9c7c6ec49af4bc3d9b5111fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 2
-  MinMoveDistance: 0
---- !u!114 &-3209775951841055960
+  MinMoveDistance: 0.1
+--- !u!114 &-4164237827658870242
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,10 +148,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2048847271053277638}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 108b2cc806c6aa04d96106a1292d1c98, type: 3}
+  m_Script: {fileID: 11500000, guid: 422ef98f77d6ccf439a0591f3142e7cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetObject: {fileID: 0}
-  TargetPoint: {x: 0, y: 0, z: 0}
-  MinMoveLength: 0
-  queueCount: 20
+  LastHitHina: {fileID: 0}
