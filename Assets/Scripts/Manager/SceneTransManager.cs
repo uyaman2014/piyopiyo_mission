@@ -1,4 +1,4 @@
-using System.Threading.Tasks;
+/*using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -43,4 +43,4 @@ namespace Manager
             transitionImage.gameObject.SetActive(false);
         }
     }
-}
+}*/
