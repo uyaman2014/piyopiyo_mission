@@ -15,7 +15,7 @@ public class SpawnCar : MonoBehaviour
     {
         while(true)
         {
-            GetComponent<Rigidbody2D>().velocity = Vector2.left;
+           GetComponent<Rigidbody2D>().velocity = Vector2.left;
             float y = Random.Range(-4.5f, 4.5f);
             int direction = Random.Range(0, 2);
             if (direction == 0)
@@ -32,7 +32,11 @@ public class SpawnCar : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+       if(collision.CompareTag("karugamo"))
+        {
+            Destroy(collision.gameObject);
+        }
+       
     }
     // Update is called once per frame
     void Update()

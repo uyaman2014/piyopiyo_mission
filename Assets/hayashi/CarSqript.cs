@@ -15,11 +15,11 @@ public class CarSqript : MonoBehaviour
         return Vector2.zero;
     }
 
-    // Start is called before the first frame update
+    
     void Start()
     {
 
-        GetComponent<Rigidbody2D>().velocity = Vector2.left;
+       
     }
 
     // Update is called once per frame
