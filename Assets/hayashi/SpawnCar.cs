@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SpawnCar : MonoBehaviour
 {
-    public GameObject Car;
+    private GameObject Car;
+
     // Start is called before the first frame update
     void Start()
     {
