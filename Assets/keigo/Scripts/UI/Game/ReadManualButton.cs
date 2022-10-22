@@ -2,16 +2,16 @@
 using UI.Manual;
 using UnityEngine;
 
-namespace UI.Title
+namespace UI.Game
 {
-    public class TitleManualButton : UIButton
+    public class ReadManualButton : UIButton
     {
         private WindowManager _windowManager;
 
         protected override void Start()
         {
             GameObject.FindWithTag("WindowManager").TryGetComponent(out _windowManager);
-            
+
             base.Start();
         }
 
