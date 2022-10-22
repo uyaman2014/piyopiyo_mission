@@ -10,25 +10,20 @@ public class HinaSpawner : MonoBehaviour
     private float IntervalMin;
     [SerializeField]
     private float IntervalMax;
+    [SerializeField]
+    private int MaxHinaCount;
+
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnTimer());
+        for (int i = 0; i < MaxHinaCount; i++)
+        {
+            GameObject.Instantiate(HinaPrefab, transform).GetComponent<HinaManager>().Spawner = this;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-    IEnumerator SpawnTimer()
-    {
-        yield return new WaitForSeconds(Random.Range(IntervalMin, IntervalMax));
-        GameObject.Instantiate(HinaPrefab, transform).GetComponent<HinaManager>().Spawner = this;
-    }
-
-    public void UnLockSpawner()
-    {
-        StartCoroutine(SpawnTimer());
     }
 }

@@ -6,6 +6,11 @@ TagManager:
   tags:
   - TransManager
   - kamo
+  - Parent
+  - Chiled
+  - MovingObstacle
+  - EffectObstacle
+  - Goal
   layers:
   - Default
   - TransparentFX
