@@ -87,6 +87,7 @@ Tilemap:
   m_GameObject: {fileID: 7433564220393022700}
   m_Enabled: 1
   m_Tiles:
+<<<<<<< HEAD
   - first: {x: -4, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -117,6 +118,8 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+=======
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
   - first: {x: -1, y: 0, z: 0}
     second:
       serializedVersion: 2
@@ -127,6 +130,7 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+<<<<<<< HEAD
   - first: {x: -4, y: 1, z: 0}
     second:
       serializedVersion: 2
@@ -137,10 +141,13 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
+=======
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
   m_AnimatedTiles: {}
   m_TileAssetArray:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 5836812f1807b58498ecc686b1c79801, type: 2}
+<<<<<<< HEAD
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 6636633b8674fe9499e195bd564a2b10, type: 2}
   - m_RefCount: 1
@@ -162,6 +169,13 @@ Tilemap:
     m_Data: {fileID: 21300000, guid: 39079173f9aa54544a9988c8d2874d56, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 5
+=======
+  m_TileSpriteArray:
+  - m_RefCount: 1
+    m_Data: {fileID: 21300000, guid: 1f8625cb1d909e545bdc9f6f1b2fd032, type: 3}
+  m_TileMatrixArray:
+  - m_RefCount: 1
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
     m_Data:
       e00: 1
       e01: 0
@@ -180,13 +194,22 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
+<<<<<<< HEAD
   - m_RefCount: 5
+=======
+  - m_RefCount: 1
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
+<<<<<<< HEAD
   m_Origin: {x: -4, y: 0, z: 0}
   m_Size: {x: 4, y: 2, z: 1}
+=======
+  m_Origin: {x: -1, y: 0, z: 0}
+  m_Size: {x: 1, y: 1, z: 1}
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -255,7 +278,11 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+<<<<<<< HEAD
 --- !u!114 &2854719061684739251
+=======
+--- !u!114 &5800516503177335865
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

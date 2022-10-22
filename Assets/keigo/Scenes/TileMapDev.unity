@@ -280,7 +280,11 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
+<<<<<<< HEAD
   m_SortingOrder: -1
+=======
+  m_SortingOrder: 0
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -297,6 +301,7 @@ Tilemap:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754581289}
   m_Enabled: 1
+<<<<<<< HEAD
   m_Tiles:
   - first: {x: -11, y: -7, z: 0}
     second:
@@ -2988,6 +2993,43 @@ Tilemap:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: -11, y: -7, z: 0}
   m_Size: {x: 23, y: 12, z: 1}
+=======
+  m_Tiles: {}
+  m_AnimatedTiles: {}
+  m_TileAssetArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  m_TileMatrixArray:
+  - m_RefCount: 0
+    m_Data:
+      e00: -0.0012608608
+      e01: 0
+      e02: 1.8295932e-19
+      e03: 1.8295932e-19
+      e10: 4.5915e-41
+      e11: 0
+      e12: 6.24e-43
+      e13: 6.24e-43
+      e20: -1745012
+      e21: 1e-45
+      e22: -2.5551878e-19
+      e23: 1.1925388e+23
+      e30: 4.5905e-41
+      e31: 0
+      e32: 6.24e-43
+      e33: 6.25e-43
+  m_TileColorArray:
+  - m_RefCount: 0
+    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: -4, y: -3, z: 0}
+  m_Size: {x: 12, y: 5, z: 1}
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -3007,6 +3049,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD
 --- !u!1 &840889373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3129,6 +3172,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+=======
+>>>>>>> 6e792790 (ミニマップとタイルマップの素材作成テスト)
 --- !u!1 &1928330643
 GameObject:
   m_ObjectHideFlags: 0
