@@ -1,4 +1,6 @@
 using System.Threading.Tasks;
+using Cysharp.Threading.Tasks;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -7,6 +9,13 @@ namespace Manager
 {
     public class SceneTransManager : MonoBehaviour
     {
+        [SerializeField] private Image transitionImage;
+
+        private void Awake()
+        {
+            transitionImage.gameObject.SetActive(false);
+        }
+
         /// <summary>
         ///     ゲーム開始時にベースシーン読み込み
         /// </summary>
@@ -25,22 +34,23 @@ namespace Manager
             if (!baseSceneFlag) SceneManager.LoadSceneAsync("BaseScene", LoadSceneMode.Additive);
         }
 
-        [SerializeField] private Image transitionImage;
-
-        private void Awake()
-        {
-            transitionImage.gameObject.SetActive(false);
-        }
-
 
         public async Task TransitionScene(string sceneName)
         {
+            var task = new UniTaskCompletionSource();
+
             transitionImage.gameObject.SetActive(true);
-            // TODO: パネルを暗転、読み込みをawait
-            SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
-            SceneManager.LoadSceneAsync(sceneName);
-            // TODO: パネルを透明
-            transitionImage.gameObject.SetActive(false);
+            transitionImage.DOFade(1, 0.5f).OnComplete(async () =>
+            {
+                await SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+                await SceneManager.LoadSceneAsync(sceneName, LoadSceneMode.Additive);
+                transitionImage.DOFade(0, 0.5f).OnComplete(() =>
+                {
+                    transitionImage.gameObject.SetActive(false);
+                    task.TrySetResult();
+                });
+            });
+            await task.Task;
         }
     }
 }
