@@ -1,7 +1,7 @@
 ﻿using UI.Game;
 using UnityEngine;
 
-namespace UI.DemoKeigo
+namespace keigo.Scripts.UI.DemoKeigo
 {
     public class GameTimeUITest : MonoBehaviour
     {

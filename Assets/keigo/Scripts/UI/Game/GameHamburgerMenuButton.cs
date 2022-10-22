@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using keigo.Scripts.Common;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,8 @@ namespace UI.Game
     public class GameHamburgerMenuButton : UIButton
     {
         [SerializeField] private Image pauseUI;
+        // TODO: 注入
+        private IPoseExecutor _poseExecutor;
         private float _width;
 
         private void Awake()
@@ -30,6 +33,8 @@ namespace UI.Game
                 pos.x = value;
                 pauseUI.rectTransform.anchoredPosition = pos;
             }, 0, 0.1f);
+            
+            _poseExecutor?.Pause();
         }
 
         /// <summary>
@@ -44,6 +49,8 @@ namespace UI.Game
                 pos.x = value;
                 pauseUI.rectTransform.anchoredPosition = pos;
             }, -_width, 0.1f);
+            
+            _poseExecutor?.Resume();
         }
 
         protected override void OnClick()
