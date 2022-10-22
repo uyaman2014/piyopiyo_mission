@@ -5,7 +5,9 @@ using UnityEngine;
 public class SpawnCar : MonoBehaviour
 {
     private GameObject Car;
-
+    public GameObject[] prefabs
+        = new GameObject[3];
+    int curvege = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,9 +15,9 @@ public class SpawnCar : MonoBehaviour
     }
     IEnumerator Spawn()
     {
-        while(true)
+        while (true)
         {
-           GetComponent<Rigidbody2D>().velocity = Vector2.left;
+            GetComponent<Rigidbody2D>().velocity = Vector2.left;
             float y = Random.Range(-4.5f, 4.5f);
             int direction = Random.Range(0, 2);
             if (direction == 0)
@@ -34,6 +36,9 @@ public class SpawnCar : MonoBehaviour
     {
        if(collision.CompareTag("karugamo"))
         {
+            Instantiate(prefabs[curvege]);
+            curvege++;
+            curvege %= 3;
             Destroy(collision.gameObject);
         }
        

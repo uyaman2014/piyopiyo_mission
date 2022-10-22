@@ -7,6 +7,11 @@ using UnityEngine;
 
 public class CarSqript : MonoBehaviour
 {
+    public enum Type
+    {
+        whitecar,blecar,redcar
+    }
+    public Type type;
     [SerializeField]
     private Vector2 Velocity;
 
