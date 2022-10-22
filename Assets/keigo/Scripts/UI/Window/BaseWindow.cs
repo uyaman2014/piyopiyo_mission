@@ -1,5 +1,4 @@
-﻿using Cysharp.Threading.Tasks;
-using DG.Tweening;
+﻿using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,46 +7,41 @@ namespace UI.Window
     /// <summary>
     ///     ウィンドウの基底クラス
     /// </summary>
-    [RequireComponent(typeof(Image))]
     public abstract class BaseWindow : MonoBehaviour
     {
-        private Image _container;
+        [SerializeField] private Button[] closeButtons;
+        private WindowManager _windowManager;
+
+#if UNITY_EDITOR
+        private void Reset()
+        {
+            closeButtons = GetComponentsInChildren<Button>();
+        }
+#endif
 
         private void Start()
         {
-            TryGetComponent(out _container);
+            GameObject.FindWithTag("WindowManager").TryGetComponent(out _windowManager);
 
-            _container.CrossFadeAlpha(0, 0, false);
-            _container.gameObject.SetActive(false);
+            foreach (var btn in closeButtons) btn.onClick.AddListener(_windowManager.CloseWindow);
         }
 
         /// <summary>
         ///     ウィンドウ開く
         /// </summary>
         /// <returns></returns>
-        public UniTask Open()
+        public void Open()
         {
-            var taskSource = new UniTaskCompletionSource();
-
-            _container.gameObject.SetActive(true);
-            _container.DOFade(1, 0.1f).OnComplete(() => taskSource.TrySetResult());
-            return taskSource.Task;
+            gameObject.SetActive(true);
         }
 
         /// <summary>
         ///     ウィンドウ閉じる
         /// </summary>
         /// <returns></returns>
-        public UniTask Close()
+        public void Close()
         {
-            var taskSource = new UniTaskCompletionSource();
-
-            _container.DOFade(0, 0.1f).OnComplete(() =>
-            {
-                _container.gameObject.SetActive(false);
-                taskSource.TrySetResult();
-            });
-            return taskSource.Task;
+            gameObject.SetActive(false);
         }
     }
 }
