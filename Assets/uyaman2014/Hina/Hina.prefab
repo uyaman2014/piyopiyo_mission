@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -3209775951841055960}
   m_Layer: 0
   m_Name: Hina
-  m_TagString: Untagged
+  m_TagString: Chiled
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,5 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TargetObject: {fileID: 0}
   TargetPoint: {x: 0, y: 0, z: 0}
-  MinMoveLength: 0
-  queueCount: 20
+  Spawner: {fileID: 0}
+  QueueCount: 20
+  ParentTagName: Parent
+  MovingObstacleTagName: MovingObstacle

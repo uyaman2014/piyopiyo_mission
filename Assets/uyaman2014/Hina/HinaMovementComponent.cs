@@ -17,7 +17,11 @@ public class HinaMovementComponent : CharacterMovementBase
         {
             //MovePoint = hinaManager.TargetObject.transform.position;
             MovePoint = hinaManager.TargetPoint;
-            base.FixedUpdate();
         }
+        else
+        {
+            MovePoint = this.transform.position;
+        }
+        base.FixedUpdate();
     }
 }
