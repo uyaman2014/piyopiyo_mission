@@ -15,7 +15,7 @@ public class SpawnCar : MonoBehaviour
     }
     IEnumerator Spawn()
     {
-      
+        while(true)
         while (true)
         {
             GetComponent<Rigidbody2D>().velocity = Vector2.left;
