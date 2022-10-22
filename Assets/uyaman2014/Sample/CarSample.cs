@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CarSample : MonoBehaviour, SampleInterface
 {
+    [SerializeField]
+    private Vector2 MoveDirection;
     public float FloatFunc()
     {
         return 100;
@@ -22,7 +24,7 @@ public class CarSample : MonoBehaviour, SampleInterface
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = Vector2.left;
+        GetComponent<Rigidbody2D>().velocity = MoveDirection;
     }
 
     // Update is called once per frame
