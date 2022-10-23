@@ -1,10 +1,12 @@
-﻿using UnityEngine;
+﻿using UniRx;
+using UnityEngine;
 
 namespace Manager
 {
     public class ScoreManager : MonoBehaviour
     {
         private int _currentScore;
+        private GameStateManager _stateManager;
 
         public static ScoreManager Instance
         {
@@ -13,6 +15,13 @@ namespace Manager
                 GameObject.FindWithTag("ScoreManager").TryGetComponent(out ScoreManager manager);
                 return manager;
             }
+        }
+
+        private void Start()
+        {
+            _stateManager = GameStateManager.Instance;
+
+            _stateManager.OnStateChange.Where(e => e == GameState.Playing).Subscribe(_ => ResetScore()).AddTo(this);
         }
 
         /// <summary>
@@ -34,7 +43,7 @@ namespace Manager
         }
 
         /// <summary>
-        /// スコアをリセット
+        ///     スコアをリセット
         /// </summary>
         public void ResetScore()
         {
