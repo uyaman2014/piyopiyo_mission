@@ -2,6 +2,7 @@
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using keigo.Scripts.Common;
+using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,8 +15,7 @@ namespace UI.Game
         private float _minimapWidth, _minimapInitX;
         private float _pauseUIWidth;
 
-        // TODO: 注入
-        private IPoseExecutor _poseExecutor;
+        private GameStateManager _stateManager;
 
         private void Awake()
         {
@@ -27,6 +27,13 @@ namespace UI.Game
             var pos = pauseUI.rectTransform.localPosition;
             pos.x -= _pauseUIWidth;
             pauseUI.rectTransform.localPosition = pos;
+        }
+
+        protected override void Start()
+        {
+            _stateManager = GameStateManager.Instance;
+
+            base.Start();
         }
 
         private TweenerCore<float, float, FloatOptions> MoveRectX(RectTransform rect, float endValue, float duration)
@@ -47,8 +54,8 @@ namespace UI.Game
             pauseUI.gameObject.SetActive(true);
             MoveRectX(minimapContainer.rectTransform, -_minimapWidth, 0.1f)
                 .OnComplete(() => MoveRectX(pauseUI.rectTransform, 0, 0.1f));
-
-            _poseExecutor?.Pause();
+            
+            _stateManager.PublishState(GameState.Pause);
         }
 
         /// <summary>
@@ -59,8 +66,8 @@ namespace UI.Game
             pauseUI.gameObject.SetActive(false);
             MoveRectX(pauseUI.rectTransform, -_pauseUIWidth, 0.1f)
                 .OnComplete(() => MoveRectX(minimapContainer.rectTransform, _minimapInitX, 0.1f));
-
-            _poseExecutor?.Resume();
+            
+            _stateManager.PublishState(GameState.Playing);
         }
 
         protected override void OnClick()

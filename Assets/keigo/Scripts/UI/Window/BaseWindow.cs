@@ -1,4 +1,5 @@
-﻿using Manager;
+﻿using System;
+using Manager;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ namespace UI.Window
     /// </summary>
     public abstract class BaseWindow : MonoBehaviour
     {
-        [SerializeField] private Button[] closeButtons;
+        [SerializeField] private Button[] closeButtons = Array.Empty<Button>();
         private WindowManager _windowManager;
 
 #if UNITY_EDITOR

@@ -19,6 +19,15 @@ namespace Manager
         private BaseWindow _currentWindow;
         private float _maskImageInitAlpha;
 
+        public static WindowManager Instance
+        {
+            get
+            {
+                GameObject.FindWithTag("WindowManager").TryGetComponent(out WindowManager windowManager);
+                return windowManager;
+            }
+        }
+
         private void Awake()
         {
             maskImage.CrossFadeAlpha(0, 0, false);

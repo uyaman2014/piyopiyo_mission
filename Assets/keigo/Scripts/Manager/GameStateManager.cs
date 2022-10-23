@@ -9,7 +9,7 @@ namespace Manager
     /// </summary>
     public class GameStateManager : MonoBehaviour
     {
-        private ReactiveProperty<GameState> _currentState = new();
+        private readonly ReactiveProperty<GameState> _currentState = new();
 
         public static GameStateManager Instance
         {
