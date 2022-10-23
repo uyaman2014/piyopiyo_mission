@@ -11,7 +11,7 @@ public class OnGoal : MonoBehaviour
         if(collision.tag == GoalTagName)
         {
             var oyaManager = GetComponent<OyaManager>();
-            if (oyaManager.CurrentTargetObject != this.gameObject)
+            if (oyaManager.CurrentTargetObject != this.gameObject && oyaManager.CurrentTargetObject)
             {
                 oyaManager.CurrentTargetObject.GetComponent<HinaManager>().OnGoal();
                 oyaManager.CurrentTargetObject = this.gameObject;

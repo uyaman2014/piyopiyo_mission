@@ -8,13 +8,15 @@ public class InGameManager : MonoBehaviour
     private GameObject OyaObject;
     [SerializeField]
     private HinaSpawner HinaSpawner;
+    [SerializeField]
+    private Vector3 OyaSpawnPoint;
     // Start is called before the first frame update
     void Start()
     {
         var cam = Camera.main;
         Camera.main.gameObject.AddComponent<MainCameraManager>();
         CharacterManager.ResetObjects();
-        CharacterManager.OyaObject = GameObject.Instantiate(OyaObject, Vector3.zero, Quaternion.identity);
+        CharacterManager.OyaObject = GameObject.Instantiate(OyaObject, OyaSpawnPoint, Quaternion.identity);
         HinaSpawner.SpawnHina();
     }
 
