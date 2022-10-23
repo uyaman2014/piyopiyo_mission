@@ -22,6 +22,7 @@ namespace UI.Title
 
         protected override async void OnClick()
         {
+            GameStateManager.Instance.PublishState(GameState.Playing);
             await _transManager.TransitionScene(nextSceneName);
         }
     }
