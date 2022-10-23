@@ -11,6 +11,7 @@ TagManager:
   - MovingObstacle
   - EffectObstacle
   - Goal
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

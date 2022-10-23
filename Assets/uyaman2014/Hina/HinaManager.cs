@@ -43,8 +43,6 @@ public class HinaManager : MonoBehaviour
         }
         if (targetrb2d.velocity != Vector2.zero)
             positions.Enqueue(TargetObject.transform.position);
-        if (TargetObject.GetComponent<OyaManager>())
-            return;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -79,27 +77,41 @@ public class HinaManager : MonoBehaviour
 
     void OnMovingObstacled(float scattered)
     {
-        TargetObject = null;
-        transform.position = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * scattered;
         TargetPoint = transform.position;
         if(ReferenceObject)
         {
             ReferenceObject.GetComponent<HinaManager>().OnMovingObstacled(scattered);
         }
-        ReferenceObject = null;
+        Scatter(scattered);
     }
 
     public void OnGoal()
     {
-        transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-3f, 3f));
-        TargetPoint = transform.position;
         if (TargetObject)
         {
             var hinaManager = TargetObject.GetComponent<HinaManager>();
             if(hinaManager)
                 hinaManager.OnGoal();
         }
-        ReferenceObject = null;
+        ResetPosition();
+    }
+
+    void ResetPosition()
+    {
+        var spawn= Spawner.GetRandomSpawnPoint();
+        transform.position = spawn.transform.position;
+        positions.Clear();
+        targetrb2d = null;
         TargetObject = null;
+        ReferenceObject = null;
+    }
+
+    void Scatter(float ratio)
+    {
+        transform.position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * ratio;
+        positions.Clear();
+        targetrb2d = null;
+        TargetObject = null;
+        ReferenceObject = null;
     }
 }

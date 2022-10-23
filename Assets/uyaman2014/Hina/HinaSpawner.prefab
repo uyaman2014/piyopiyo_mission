@@ -47,3 +47,6 @@ MonoBehaviour:
   HinaPrefab: {fileID: 2048847271053277638, guid: 36bf63182cad8394b8eb7c1fa4919f5f, type: 3}
   IntervalMin: 1
   IntervalMax: 10
+  MaxHinaCount: 10
+  SpawnPointTagName: SpawnPoint
+  SpawnPoints: []
