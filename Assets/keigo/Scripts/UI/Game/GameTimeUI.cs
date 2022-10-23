@@ -28,7 +28,7 @@ namespace UI.Game
                 minuteText.text = ((int)(left / 60)).ToString();
                 secondText.text = ((int)(left % 60)).ToString();
                 gaugeUI.fillAmount = left / max;
-            });
+            }).AddTo(this);
         }
     }
 }

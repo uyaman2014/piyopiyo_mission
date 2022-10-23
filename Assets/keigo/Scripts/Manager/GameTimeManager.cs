@@ -29,7 +29,7 @@ namespace Manager
         {
             _stateManager = GameStateManager.Instance;
 
-            _stateManager.OnStateChange.Where(e => e == GameState.Playing).Subscribe(_ => { _elapsedSec.Value = 0; })
+            _stateManager.OnStateChange.Where(e => e == GameState.Title).Subscribe(_ => _elapsedSec.Value = 0)
                 .AddTo(this);
         }
 

@@ -73,8 +73,6 @@ namespace UI.Game
         protected override void OnClick()
         {
             var isPaused = pauseUI.rectTransform.position.x >= 0;
-            // TODO: ポーズ処理をどうするか相談
-            // TODO: というか誰がポーズを管理するか
 
             if (isPaused)
                 Resume();
