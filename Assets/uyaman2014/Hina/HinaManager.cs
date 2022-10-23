@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using keigo.Scripts.Common;
+using Manager;
 
 public class HinaManager : MonoBehaviour
 {
@@ -93,6 +94,7 @@ public class HinaManager : MonoBehaviour
             if(hinaManager)
                 hinaManager.OnGoal();
         }
+        ScoreManager.Instance.IncreaseScore(1);
         ResetPosition();
     }
 

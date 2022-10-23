@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8565247059721162641}
   - component: {fileID: 6229923197559115167}
   - component: {fileID: -4164237827658870242}
+  - component: {fileID: 8716620339257496626}
   m_Layer: 0
   m_Name: Oya
   m_TagString: Parent
@@ -152,3 +153,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentTargetObject: {fileID: 0}
+--- !u!114 &8716620339257496626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048847271053277638}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25514dcbaa748874881d1929d5ac9f98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GoalTagName: Goal
