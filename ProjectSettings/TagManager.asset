@@ -12,6 +12,7 @@ TagManager:
   - MovingObstacle
   - EffectObstacle
   - Goal
+  - SpawnPoint
   - ScoreManager
   - GameStateManager
   layers:

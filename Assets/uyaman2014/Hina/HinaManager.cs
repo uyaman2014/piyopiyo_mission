@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using keigo.Scripts.Common;
+using Manager;
 
 public class HinaManager : MonoBehaviour
 {
@@ -20,11 +21,18 @@ public class HinaManager : MonoBehaviour
     string ParentTagName;
     [SerializeField]
     string MovingObstacleTagName;
+    [SerializeField]
+    float NoHitTimeDuration = 3f;
+    [SerializeField]
+    float BoostRatio = 10f;
+    [SerializeField]
+    float BoostDuration = 3f;
     // Start is called before the first frame update
     
     void Start()
     {
         positions = new Queue<Vector3>(QueueCount);
+        TargetPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -43,8 +51,6 @@ public class HinaManager : MonoBehaviour
         }
         if (targetrb2d.velocity != Vector2.zero)
             positions.Enqueue(TargetObject.transform.position);
-        if (TargetObject.GetComponent<OyaManager>())
-            return;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -56,6 +62,8 @@ public class HinaManager : MonoBehaviour
             oyaManager = collision.gameObject.GetComponent<OyaManager>();
             if (!oyaManager)
                 return;
+            if (!oyaManager.RefecenceObject)
+                oyaManager.RefecenceObject = this.gameObject;
             TargetObject = oyaManager.CurrentTargetObject;
             oyaManager.CurrentTargetObject = this.gameObject;
             TargetPoint = TargetObject.transform.position;
@@ -77,29 +85,59 @@ public class HinaManager : MonoBehaviour
         }
     }
 
-    void OnMovingObstacled(float scattered)
+    public void OnMovingObstacled(float scattered)
     {
-        TargetObject = null;
-        transform.position = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized * scattered;
         TargetPoint = transform.position;
         if(ReferenceObject)
         {
             ReferenceObject.GetComponent<HinaManager>().OnMovingObstacled(scattered);
         }
-        ReferenceObject = null;
+        Scatter(scattered);
     }
 
     public void OnGoal()
     {
-        transform.position = new Vector3(Random.Range(-5f, 5f), Random.Range(-3f, 3f));
-        TargetPoint = transform.position;
         if (TargetObject)
         {
             var hinaManager = TargetObject.GetComponent<HinaManager>();
             if(hinaManager)
                 hinaManager.OnGoal();
         }
-        ReferenceObject = null;
+        ScoreManager.Instance.IncreaseScore(1);
+        ResetPosition();
+    }
+
+    void ResetPosition()
+    {
+        var spawn= Spawner.GetRandomSpawnPoint();
+        transform.position = spawn.transform.position;
+        TargetPoint = transform.position;
+        positions.Clear();
+        targetrb2d = null;
         TargetObject = null;
+        ReferenceObject = null;
+        if (oyaManager.RefecenceObject == this.gameObject)
+            oyaManager.RefecenceObject = null;
+    }
+
+    void Scatter(float ratio)
+    {
+        TargetPoint = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * ratio;
+        GetComponent<HinaMovementComponent>().Boost(BoostRatio, BoostDuration);
+        positions.Clear();
+        targetrb2d = null;
+        TargetObject = null;
+        ReferenceObject = null;
+        if (oyaManager.RefecenceObject == this.gameObject)
+            oyaManager.RefecenceObject = null;
+        StartCoroutine(DisableCollisionTimer(NoHitTimeDuration));
+    }
+
+    IEnumerator DisableCollisionTimer(float duration)
+    {
+        var col = GetComponent<Collider2D>();
+        col.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(duration);
+        col.GetComponent<Collider>().enabled = true;
     }
 }

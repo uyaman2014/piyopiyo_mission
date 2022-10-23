@@ -13,15 +13,19 @@ public class HinaMovementComponent : CharacterMovementBase
     }
     protected override void FixedUpdate()
     {
-        if (hinaManager.TargetObject)
-        {
-            //MovePoint = hinaManager.TargetObject.transform.position;
-            MovePoint = hinaManager.TargetPoint;
-        }
-        else
-        {
-            MovePoint = this.transform.position;
-        }
+        //MovePoint = hinaManager.TargetObject.transform.position;
+        MovePoint = hinaManager.TargetPoint;
         base.FixedUpdate();
+    }
+    public void Boost(float ratio, float time)
+    {
+        StartCoroutine(BoostImplement(ratio, time));
+    }
+    private IEnumerator BoostImplement(float ratio, float time)
+    {
+        var defaultSpeed = MoveSpeed;
+        MoveSpeed = ratio;
+        yield return new WaitForSeconds(time);
+        MoveSpeed = defaultSpeed;
     }
 }

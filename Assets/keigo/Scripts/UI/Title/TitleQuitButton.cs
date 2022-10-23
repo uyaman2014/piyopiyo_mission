@@ -13,6 +13,8 @@ namespace UI.Title
         {
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
+#elif PLATFORM_WEBGL
+
 #else
             Application.Quit();
 #endif
