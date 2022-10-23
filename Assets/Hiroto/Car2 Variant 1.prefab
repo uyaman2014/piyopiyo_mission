@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 385fcfeffd62c094ca22a5802e2e041a, type: 3}
+    - target: {fileID: 7135909240258395351, guid: 65c75bee9ba13ef4e80c7e3efd161d3b, type: 3}
+      propertyPath: ScatterScale
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9159861788916733524, guid: 65c75bee9ba13ef4e80c7e3efd161d3b, type: 3}
       propertyPath: m_Name
       value: Car2 Variant 1
@@ -78,4 +82,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0105d84e272fd394082a73ac766508d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDirection: {x: 0, y: 0}
+  ScatterScale: 0

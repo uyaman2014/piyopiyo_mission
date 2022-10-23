@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car2 Variant 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8902806389467819185, guid: 28a74b4f78526e04782979b6bd9baad9, type: 3}
+      propertyPath: ScatterScale
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28a74b4f78526e04782979b6bd9baad9, type: 3}
 --- !u!1 &4889073632411596869 stripped
@@ -78,4 +82,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0105d84e272fd394082a73ac766508d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDirection: {x: 0, y: 0}
+  ScatterScale: 0

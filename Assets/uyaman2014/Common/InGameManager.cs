@@ -11,7 +11,7 @@ public class InGameManager : MonoBehaviour
     [SerializeField]
     private Vector3 OyaSpawnPoint;
     [SerializeField]
-    private Vector3[] MapSize = new Vector3[2];
+    List<Vector2> MapSize;
     // Start is called before the first frame update
     void Start()
     {

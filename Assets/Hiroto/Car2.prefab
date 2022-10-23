@@ -217,4 +217,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0105d84e272fd394082a73ac766508d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDirection: {x: 0, y: 0}
+  ScatterScale: 10

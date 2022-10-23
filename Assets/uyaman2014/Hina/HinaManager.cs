@@ -136,8 +136,8 @@ public class HinaManager : MonoBehaviour
     IEnumerator DisableCollisionTimer(float duration)
     {
         var col = GetComponent<Collider2D>();
-        col.GetComponent<Collider>().enabled = false;
+        col.enabled = false;
         yield return new WaitForSeconds(duration);
-        col.GetComponent<Collider>().enabled = true;
+        col.enabled = true;
     }
 }

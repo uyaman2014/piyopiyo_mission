@@ -986,8 +986,8 @@ MonoBehaviour:
   HinaSpawner: {fileID: 1451299330}
   OyaSpawnPoint: {x: -17, y: 0, z: 0}
   MapSize:
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  - {x: -20, y: 15.81}
+  - {x: 29.7, y: -15.81}
 --- !u!4 &340169153
 Transform:
   m_ObjectHideFlags: 0

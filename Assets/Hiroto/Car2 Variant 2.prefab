@@ -7,6 +7,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 15000490653663230, guid: 2a1de05877ae7834486b0d625c3fc02e, type: 3}
+      propertyPath: ScatterScale
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 2030209448069764477, guid: 2a1de05877ae7834486b0d625c3fc02e, type: 3}
       propertyPath: m_Name
       value: Car2 Variant 2
@@ -90,4 +94,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0105d84e272fd394082a73ac766508d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveDirection: {x: 0, y: 0}
+  ScatterScale: 0
