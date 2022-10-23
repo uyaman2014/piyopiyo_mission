@@ -15,6 +15,7 @@ TagManager:
   - SpawnPoint
   - ScoreManager
   - GameStateManager
+  - GameTimeManager
   layers:
   - Default
   - TransparentFX

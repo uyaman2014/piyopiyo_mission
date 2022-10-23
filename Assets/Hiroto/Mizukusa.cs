@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class Mizukusa : MonoBehaviour
 {
-    
+    [SerializeField]
+    private Sprite Mizukusa1;
+    private SpriteRenderer Renderer;
     void Start()
     {
-        float dx = Input.GetAxis("Horizontal") * Time.deltaTime * 3.0f;
-        float dz = Input.GetAxis("Vertical") * Time.deltaTime * 3.0f;
-        transform.position = new Vector3(
-            transform.position.x + dx, 0.5f, transform.position.z + dz
-        );
+        Renderer = GetComponent<SpriteRenderer>();
+        Renderer.sprite = Mizukusa1;
     }
-    void OnCollisionEnter(Collision col)
+     void OnTriggerEnter(Collider other)
     {
-        if (col.gameObject.name == "Cube")
-        {
-           
-        }
+        
+            
+        
+        
     }
     // Update is called once per frame
     void Update()
     {
-        
+    //    other.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, 0,10), ForceMode.VelocityChange);
     }
 }

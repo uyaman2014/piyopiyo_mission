@@ -14,7 +14,8 @@ public class Bike : MonoBehaviour
     public Type type;
     [SerializeField]
     private Vector2 velocity;
-
+  
+    
     void Start()
     {
         GetComponent<Rigidbody2D>().velocity = velocity;

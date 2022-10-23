@@ -5,9 +5,12 @@ using UnityEngine;
 public class SpawnerCar1 : MonoBehaviour
 {
     private GameObject Car2;
+    /*int curvege=0;
+    var nums = new int[] { 0, 1, 2, 3, 4, 5, 6 };
+    var randomNum =
+       nums[Random.Range(0, nums.Length)];*/
     public GameObject[] prefabs
-        = new GameObject[8];
-    int curvege = 0;
+        = new GameObject[7];
    
     // Start is called before the first frame update
     void Start()
@@ -50,6 +53,7 @@ public class SpawnerCar1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += transform.right;
+
     }
 }
