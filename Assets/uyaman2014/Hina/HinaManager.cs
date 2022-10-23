@@ -21,11 +21,18 @@ public class HinaManager : MonoBehaviour
     string ParentTagName;
     [SerializeField]
     string MovingObstacleTagName;
+    [SerializeField]
+    float NoHitTimeDuration = 3f;
+    [SerializeField]
+    float BoostRatio = 10f;
+    [SerializeField]
+    float BoostDuration = 3f;
     // Start is called before the first frame update
     
     void Start()
     {
         positions = new Queue<Vector3>(QueueCount);
+        TargetPoint = transform.position;
     }
 
     // Update is called once per frame
@@ -55,6 +62,8 @@ public class HinaManager : MonoBehaviour
             oyaManager = collision.gameObject.GetComponent<OyaManager>();
             if (!oyaManager)
                 return;
+            if (!oyaManager.RefecenceObject)
+                oyaManager.RefecenceObject = this.gameObject;
             TargetObject = oyaManager.CurrentTargetObject;
             oyaManager.CurrentTargetObject = this.gameObject;
             TargetPoint = TargetObject.transform.position;
@@ -76,7 +85,7 @@ public class HinaManager : MonoBehaviour
         }
     }
 
-    void OnMovingObstacled(float scattered)
+    public void OnMovingObstacled(float scattered)
     {
         TargetPoint = transform.position;
         if(ReferenceObject)
@@ -102,18 +111,33 @@ public class HinaManager : MonoBehaviour
     {
         var spawn= Spawner.GetRandomSpawnPoint();
         transform.position = spawn.transform.position;
+        TargetPoint = transform.position;
         positions.Clear();
         targetrb2d = null;
         TargetObject = null;
         ReferenceObject = null;
+        if (oyaManager.RefecenceObject == this.gameObject)
+            oyaManager.RefecenceObject = null;
     }
 
     void Scatter(float ratio)
     {
-        transform.position = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * ratio;
+        TargetPoint = transform.position + new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f)) * ratio;
+        GetComponent<HinaMovementComponent>().Boost(BoostRatio, BoostDuration);
         positions.Clear();
         targetrb2d = null;
         TargetObject = null;
         ReferenceObject = null;
+        if (oyaManager.RefecenceObject == this.gameObject)
+            oyaManager.RefecenceObject = null;
+        StartCoroutine(DisableCollisionTimer(NoHitTimeDuration));
+    }
+
+    IEnumerator DisableCollisionTimer(float duration)
+    {
+        var col = GetComponent<Collider2D>();
+        col.GetComponent<Collider>().enabled = false;
+        yield return new WaitForSeconds(duration);
+        col.GetComponent<Collider>().enabled = true;
     }
 }

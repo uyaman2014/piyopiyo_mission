@@ -158,3 +158,4 @@ MonoBehaviour:
   QueueCount: 20
   ParentTagName: Parent
   MovingObstacleTagName: MovingObstacle
+  NoHitTimeDuration: 3

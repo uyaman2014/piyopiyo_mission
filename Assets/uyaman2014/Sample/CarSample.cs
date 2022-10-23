@@ -8,7 +8,7 @@ public class CarSample : MonoBehaviour, IMovingObstacle
     [SerializeField]
     private Vector2 MoveDirection;
 
-    public float Scattered => 1;
+    public float Scattered => 10;
 
     // Start is called before the first frame update
     void Start()
