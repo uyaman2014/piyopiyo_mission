@@ -2,8 +2,10 @@
 
 namespace Manager
 {
-    public class ScoreManager: MonoBehaviour
+    public class ScoreManager : MonoBehaviour
     {
+        private int _currentScore;
+
         public static ScoreManager Instance
         {
             get
@@ -13,15 +15,22 @@ namespace Manager
             }
         }
 
-        private int _currentScore;
-
         /// <summary>
-        /// スコアを増やす
+        ///     スコアを増やす
         /// </summary>
         /// <param name="amount">増やす量(マイナスだったら減ります)</param>
         public void IncreaseScore(int amount)
         {
             _currentScore += amount;
+        }
+
+        /// <summary>
+        ///     現在のスコアを取得
+        /// </summary>
+        /// <returns></returns>
+        public int GetCurrentScore()
+        {
+            return _currentScore;
         }
     }
 }
