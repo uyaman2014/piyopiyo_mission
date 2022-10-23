@@ -13,6 +13,7 @@ TagManager:
   - EffectObstacle
   - Goal
   - SpawnPoint
+  - ScoreManager
   layers:
   - Default
   - TransparentFX

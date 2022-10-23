@@ -22,7 +22,7 @@ public class Dog : MonoBehaviour
         if (collision.CompareTag("kamo"))
         {
             Renderer.sprite = Dog2;
-
+            GetComponent<AudioSource>().Play();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -30,6 +30,7 @@ public class Dog : MonoBehaviour
         if (collision.CompareTag("kamo"))
         {
             Renderer.sprite = Dog1;
+            GetComponent<AudioSource>().Stop();
         }
         
     }
