@@ -13,6 +13,7 @@ TagManager:
   - EffectObstacle
   - Goal
   - ScoreManager
+  - GameStateManager
   layers:
   - Default
   - TransparentFX

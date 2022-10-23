@@ -22,6 +22,12 @@ namespace Manager
 
         public IObservable<GameState> OnStateChange => _currentState;
 
+        private void Start()
+        {
+            OnStateChange.Where(e => e == GameState.Pause).Subscribe(_ => Time.timeScale = 0).AddTo(this);
+            OnStateChange.Where(e => e != GameState.Pause).Subscribe(_ => Time.timeScale = 1).AddTo(this);
+        }
+
         /// <summary>
         ///     ステートを変更
         /// </summary>
