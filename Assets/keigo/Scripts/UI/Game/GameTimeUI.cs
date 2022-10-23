@@ -1,5 +1,4 @@
-﻿using System;
-using Manager;
+﻿using Manager;
 using TMPro;
 using UniRx;
 using UnityEngine;
