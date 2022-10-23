@@ -1,13 +1,23 @@
-﻿using UnityEngine;
+﻿using Manager;
+using UI.Manual;
+using UnityEngine;
 
 namespace UI.Title
 {
     public class TitleManualButton : UIButton
     {
-        protected override void OnClick()
+        private WindowManager _windowManager;
+
+        protected override void Start()
         {
-            // TODO: マニュアルを開く
-            Debug.Log("TODO: マニュアルを開く");
+            GameObject.FindWithTag("WindowManager").TryGetComponent(out _windowManager);
+            
+            base.Start();
+        }
+
+        protected override async void OnClick()
+        {
+            await _windowManager.OpenWindow<ManualWindow>();
         }
     }
 }
