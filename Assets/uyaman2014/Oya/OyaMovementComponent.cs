@@ -6,6 +6,7 @@ public class OyaMovementComponent : CharacterMovementBase
 {
     protected override void Start()
     {
+        MovePointManager.MovePoint = this.transform.position;
         base.Start();
     }
 
