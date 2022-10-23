@@ -32,5 +32,13 @@ namespace Manager
         {
             return _currentScore;
         }
+
+        /// <summary>
+        /// スコアをリセット
+        /// </summary>
+        public void ResetScore()
+        {
+            _currentScore = 0;
+        }
     }
 }

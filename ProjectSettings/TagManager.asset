@@ -12,6 +12,7 @@ TagManager:
   - MovingObstacle
   - EffectObstacle
   - Goal
+  - ScoreManager
   layers:
   - Default
   - TransparentFX
