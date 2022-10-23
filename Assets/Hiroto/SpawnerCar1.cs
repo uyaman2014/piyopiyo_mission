@@ -53,6 +53,7 @@ public class SpawnerCar1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position += transform.right;
+
     }
 }
