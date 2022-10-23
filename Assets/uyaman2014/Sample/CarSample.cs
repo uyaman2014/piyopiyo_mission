@@ -6,14 +6,13 @@ using UnityEngine;
 public class CarSample : MonoBehaviour, IMovingObstacle
 {
     [SerializeField]
-    private Vector2 MoveDirection;
-
-    public float Scattered => 10;
+    private float ScatterScale;
+    public float Scattered => ScatterScale;
 
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().velocity = MoveDirection;
+
     }
 
     // Update is called once per frame

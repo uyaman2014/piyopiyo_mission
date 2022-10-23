@@ -10,6 +10,8 @@ public class InGameManager : MonoBehaviour
     private HinaSpawner HinaSpawner;
     [SerializeField]
     private Vector3 OyaSpawnPoint;
+    [SerializeField]
+    private Vector3[] MapSize = new Vector3[2];
     // Start is called before the first frame update
     void Start()
     {

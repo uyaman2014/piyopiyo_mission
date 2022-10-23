@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4330142173023007322
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4330142173023007320}
+  - component: {fileID: 4330142173023007323}
+  m_Layer: 0
+  m_Name: CarSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4330142173023007320
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330142173023007322}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -18.3, y: 0.0040240884, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4330142173023007323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4330142173023007322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2bce24ce7e76cd944bba1a161a1b99bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 9159861788916733524, guid: 65c75bee9ba13ef4e80c7e3efd161d3b, type: 3}
+  - {fileID: 7578952264850882173, guid: f8e5ffc224986394fa8138e3e21cd0f4, type: 3}
+  - {fileID: 5308649114394346866, guid: e3d83553792088842bb6f86ec113e766, type: 3}
+  - {fileID: 4889073632411596869, guid: f946d24f1f9bf2a4bab8c0c1e1de3b2a, type: 3}
+  - {fileID: 7463754707300222514, guid: 28a74b4f78526e04782979b6bd9baad9, type: 3}
+  - {fileID: 2030209448069764477, guid: 2a1de05877ae7834486b0d625c3fc02e, type: 3}
+  - {fileID: 4062600102041533807, guid: 599538643df12ee4abc6c3061984e51f, type: 3}
+  MoveVelocity: {x: -10, y: 0}
+  IntervalRange:
+  - 2
+  - 5
