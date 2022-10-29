@@ -5,19 +5,17 @@ namespace keigo.Scripts.Common
     public abstract class SingletonMonoBehaviour<T> : MonoBehaviour where T : SingletonMonoBehaviour<T>
     {
         private static T _instance;
+        public static T Instance => _instance;
 
-        public static T Instance
+        private void Awake()
         {
-            get
+            if (Instance != null)
             {
-                _instance ??= new GameObject().AddComponent<T>();
-                return _instance;
+                Destroy(gameObject);
+                return;
             }
-        }
 
-        private void OnDestroy()
-        {
-            _instance = null;
+            TryGetComponent(out _instance);
         }
     }
 }

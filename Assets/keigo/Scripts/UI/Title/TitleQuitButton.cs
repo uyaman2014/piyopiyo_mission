@@ -1,4 +1,6 @@
-﻿#if UNITY_EDITOR
+﻿
+using Manager;
+#if UNITY_EDITOR
 using UnityEditor;
 #endif
 
@@ -11,6 +13,7 @@ namespace UI.Title
     {
         protected override void OnClick()
         {
+            SeManager.Instance.PlayOneShot("Audio/SE/Button1", 1);
 #if UNITY_EDITOR
             EditorApplication.isPlaying = false;
 #elif PLATFORM_WEBGL
