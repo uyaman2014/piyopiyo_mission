@@ -22,6 +22,7 @@ namespace UI.Title
 
         protected override async void OnClick()
         {
+            SeManager.Instance.PlayOneShot("Audio/SE/Button1", 1);
             GameStateManager.Instance.PublishState(GameState.Playing);
             await _transManager.TransitionScene(nextSceneName);
         }

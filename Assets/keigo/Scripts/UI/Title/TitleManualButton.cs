@@ -17,6 +17,7 @@ namespace UI.Title
 
         protected override async void OnClick()
         {
+            SeManager.Instance.PlayOneShot("Audio/SE/Button1", 1);
             await _windowManager.OpenWindow<ManualWindow>();
         }
     }
