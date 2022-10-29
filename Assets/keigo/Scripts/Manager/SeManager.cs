@@ -25,6 +25,11 @@ namespace Manager
             _source.PlayOneShot(_cache.Get(audioClip), volumeScale);
         }
 
+        public void PlayOneShot(AudioClip audioClip, float volumeScale)
+        {
+            _source.PlayOneShot(audioClip, volumeScale);
+        }
+
         private class Cache<TKey, TValue>
         {
             private readonly Dictionary<TKey, CacheValue<TValue>> _cache = new();

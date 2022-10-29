@@ -11,6 +11,7 @@ namespace UI.Title
         private void Start()
         {
             GameStateManager.Instance.PublishState(GameState.Title);
+            BgmManager.Instance.Transition(0);
         }
     }
 }
