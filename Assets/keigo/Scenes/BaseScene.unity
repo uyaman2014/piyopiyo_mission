@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 247374058}
   m_Layer: 0
   m_Name: BgmManager
-  m_TagString: Untagged
+  m_TagString: BgmManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -571,7 +571,7 @@ GameObject:
   - component: {fileID: 1559927146}
   m_Layer: 0
   m_Name: SeManager
-  m_TagString: Untagged
+  m_TagString: SeManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -16,6 +16,8 @@ TagManager:
   - ScoreManager
   - GameStateManager
   - GameTimeManager
+  - SeManager
+  - BgmManager
   layers:
   - Default
   - TransparentFX

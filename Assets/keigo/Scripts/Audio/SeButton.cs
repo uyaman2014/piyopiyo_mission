@@ -12,6 +12,7 @@ namespace keigo.Scripts.Audio
 
         private void Start()
         {
+            TryGetComponent(out _button);
             _button.onClick.AddListener(() => SeManager.Instance.PlayOneShot(audioClip, 1));
         }
     }
