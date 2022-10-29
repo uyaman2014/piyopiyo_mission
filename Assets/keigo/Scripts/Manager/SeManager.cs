@@ -10,11 +10,20 @@ namespace Manager
     ///     効果音マネージャー
     /// </summary>
     [RequireComponent(typeof(AudioSource))]
-    public class SeManager : SingletonMonoBehaviour<SeManager>
+    public class SeManager : MonoBehaviour
     {
         private AudioSource _source;
         private readonly Cache<string, AudioClip> _cache = new(Resources.Load<AudioClip>);
 
+        public static SeManager Instance
+        {
+            get
+            {
+                GameObject.FindWithTag("SeManager").TryGetComponent(out SeManager manager);
+                return manager;
+            }
+        }
+        
         private void Start()
         {
             TryGetComponent(out _source);

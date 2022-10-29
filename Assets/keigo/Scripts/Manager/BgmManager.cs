@@ -1,16 +1,24 @@
-﻿using keigo.Scripts.Common;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Audio;
 
 namespace Manager
 {
-    public class BgmManager : SingletonMonoBehaviour<BgmManager>
+    public class BgmManager : MonoBehaviour
     {
         [SerializeField] private AudioMixer mixer;
         [SerializeField] private AudioMixerSnapshot[] snapshots;
         private float[] _weights;
 
-        private void Start()
+        public static BgmManager Instance
+        {
+            get
+            {
+                GameObject.FindWithTag("BgmManager").TryGetComponent(out BgmManager manager);
+                return manager;
+            }
+        }
+
+        private void Awake()
         {
             _weights = new float[snapshots.Length];
         }
