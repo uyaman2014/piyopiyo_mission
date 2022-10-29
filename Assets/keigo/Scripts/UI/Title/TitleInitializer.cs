@@ -1,11 +1,10 @@
-﻿using System;
-using Manager;
+﻿using Manager;
 using UnityEngine;
 
 namespace UI.Title
 {
     /// <summary>
-    /// タイトルシーンの初期化処理
+    ///     タイトルシーンの初期化処理
     /// </summary>
     public class TitleInitializer : MonoBehaviour
     {
